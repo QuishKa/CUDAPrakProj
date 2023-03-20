@@ -3,8 +3,16 @@
 #include "device_launch_parameters.h"
 
 #include <stdio.h>
+#include <malloc.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define MATRIXLEN 100
 
 cudaError_t addWithCuda(int *c, const int *a, const int *b, unsigned int size);
+
+void GenerateMatrix(int*** matrix);
+void OutputMatrix(int** matrix);
 
 __global__ void addKernel(int *c, const int *a, const int *b)
 {
@@ -18,6 +26,16 @@ int main()
     const int a[arraySize] = { 1, 2, 3, 4, 5 };
     const int b[arraySize] = { 10, 20, 30, 40, 50 };
     int c[arraySize] = { 0 };
+    int** matrix1 = nullptr;
+    int** matrix2 = nullptr;
+
+    srand(time(0));
+
+    GenerateMatrix(&matrix1);
+    GenerateMatrix(&matrix2);
+
+    OutputMatrix(matrix1);
+    OutputMatrix(matrix2);
 
     // Add vectors in parallel.
     cudaError_t cudaStatus = addWithCuda(c, a, b, arraySize);
@@ -36,6 +54,9 @@ int main()
         fprintf(stderr, "cudaDeviceReset failed!");
         return 1;
     }
+
+    free(matrix1);
+    free(matrix2);
 
     return 0;
 }
@@ -118,4 +139,26 @@ Error:
     cudaFree(dev_b);
     
     return cudaStatus;
+}
+
+void GenerateMatrix(int*** matrix) {
+    int** x = nullptr;
+    x = (int**)malloc(MATRIXLEN * sizeof(int*));
+    for (int i = 0; i < MATRIXLEN; ++i) {
+        x[i] = (int*)malloc(MATRIXLEN * sizeof(int));
+        for (int j = 0; j < MATRIXLEN; ++j) {
+            x[i][j] = rand() % 100;
+        }
+    }
+    *matrix = x;
+}
+
+void OutputMatrix(int** matrix) {
+    printf("\n\n");
+    for (int i = 0; i < MATRIXLEN; ++i) {
+        for (int j = 0; j < MATRIXLEN; ++j) {
+            printf("%3d", matrix[i][j]);
+        }
+        printf("\n");
+    }
 }

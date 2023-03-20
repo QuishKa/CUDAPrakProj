@@ -1,7 +1,131 @@
 ﻿  Compiling CUDA source file kernel.cu...
   
-  C:\praktika\CUDAPrakProj\CUDAPrakProj>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.1\bin\nvcc.exe" -gencode=arch=compute_52,code=\"sm_52,compute_52\" --use-local-env -ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\bin\HostX64\x64" -x cu   -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.1\include"  -G   --keep-dir x64\Debug  -maxrregcount=0   --machine 64 --compile -cudart static  -g  -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -Xcompiler "/Fdx64\Debug\vc143.pdb" -o C:\praktika\CUDAPrakProj\CUDAPrakProj\x64\Debug\kernel.cu.obj "C:\praktika\CUDAPrakProj\CUDAPrakProj\kernel.cu" 
+  C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.1\bin\nvcc.exe" -gencode=arch=compute_52,code=\"sm_52,compute_52\" --use-local-env -ccbin "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\bin\HostX64\x64" -x cu   -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.1\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.1\include"  -G   --keep-dir x64\Debug  -maxrregcount=0   --machine 64 --compile -cudart static  -g  -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -Xcompiler "/Fdx64\Debug\vc143.pdb" -o C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\x64\Debug\kernel.cu.obj "C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu" 
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(97): warning #546-D: transfer of control bypasses initialization of:
+              variable "dimBlock" (declared at line 132)
+              variable "dimGrid" (declared at line 133)
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+  Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(104): warning #546-D: transfer of control bypasses initialization of:
+              variable "dimBlock" (declared at line 132)
+              variable "dimGrid" (declared at line 133)
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(110): warning #546-D: transfer of control bypasses initialization of:
+              variable "dimBlock" (declared at line 132)
+              variable "dimGrid" (declared at line 133)
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(116): warning #546-D: transfer of control bypasses initialization of:
+              variable "dimBlock" (declared at line 132)
+              variable "dimGrid" (declared at line 133)
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(123): warning #546-D: transfer of control bypasses initialization of:
+              variable "dimBlock" (declared at line 132)
+              variable "dimGrid" (declared at line 133)
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(129): warning #546-D: transfer of control bypasses initialization of:
+              variable "dimBlock" (declared at line 132)
+              variable "dimGrid" (declared at line 133)
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(142): warning #546-D: transfer of control bypasses initialization of:
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(150): warning #546-D: transfer of control bypasses initialization of:
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(157): warning #546-D: transfer of control bypasses initialization of:
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(97): warning #546-D: transfer of control bypasses initialization of:
+              variable "dimBlock" (declared at line 132)
+              variable "dimGrid" (declared at line 133)
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+  Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(104): warning #546-D: transfer of control bypasses initialization of:
+              variable "dimBlock" (declared at line 132)
+              variable "dimGrid" (declared at line 133)
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(110): warning #546-D: transfer of control bypasses initialization of:
+              variable "dimBlock" (declared at line 132)
+              variable "dimGrid" (declared at line 133)
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(116): warning #546-D: transfer of control bypasses initialization of:
+              variable "dimBlock" (declared at line 132)
+              variable "dimGrid" (declared at line 133)
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(123): warning #546-D: transfer of control bypasses initialization of:
+              variable "dimBlock" (declared at line 132)
+              variable "dimGrid" (declared at line 133)
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(129): warning #546-D: transfer of control bypasses initialization of:
+              variable "dimBlock" (declared at line 132)
+              variable "dimGrid" (declared at line 133)
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(142): warning #546-D: transfer of control bypasses initialization of:
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(150): warning #546-D: transfer of control bypasses initialization of:
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(157): warning #546-D: transfer of control bypasses initialization of:
+              variable "tmp" (declared at line 160)
+            goto Error;
+            ^
+  
   kernel.cu
-  tmpxft_0000508c_00000000-7_kernel.cudafe1.cpp
-C:\praktika\CUDAPrakProj\CUDAPrakProj\kernel.cu(33): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-  CUDAPrakProj.vcxproj -> C:\praktika\CUDAPrakProj\x64\Debug\CUDAPrakProj.exe
+  tmpxft_000034b0_00000000-7_kernel.cudafe1.cpp
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(43): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(133): warning C4533: initialization of 'dimGrid' is skipped by 'goto Error'
+  C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(133): note: see declaration of 'dimGrid'
+  C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(164): note: see declaration of 'Error'
+C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(132): warning C4533: initialization of 'dimBlock' is skipped by 'goto Error'
+  C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(132): note: see declaration of 'dimBlock'
+  C:\Users\slava\source\repos\CUDAPrakProj\CUDAPrakProj\kernel.cu(164): note: see declaration of 'Error'
+  CUDAPrakProj.vcxproj -> C:\Users\slava\source\repos\CUDAPrakProj\x64\Debug\CUDAPrakProj.exe

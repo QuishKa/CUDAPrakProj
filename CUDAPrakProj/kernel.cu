@@ -7,12 +7,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MATRIXLEN 100
+#define MATRIXLEN 10
 
 cudaError_t addWithCuda(int *c, const int *a, const int *b, unsigned int size);
 
 void GenerateMatrix(int*** matrix);
 void OutputMatrix(int** matrix);
+int** MultiMatrixes(int** matrix1, int** matrix2);
 
 __global__ void addKernel(int *c, const int *a, const int *b)
 {
@@ -54,6 +55,9 @@ int main()
         fprintf(stderr, "cudaDeviceReset failed!");
         return 1;
     }
+
+    int** x = MultiMatrixes(matrix1, matrix2);
+    OutputMatrix(x);
 
     free(matrix1);
     free(matrix2);
@@ -157,8 +161,24 @@ void OutputMatrix(int** matrix) {
     printf("\n\n");
     for (int i = 0; i < MATRIXLEN; ++i) {
         for (int j = 0; j < MATRIXLEN; ++j) {
-            printf("%3d", matrix[i][j]);
+            printf("%7d", matrix[i][j]);
         }
         printf("\n");
     }
 }
+
+int** MultiMatrixes(int** matrix1, int** matrix2) {
+    int** x = nullptr;
+    GenerateMatrix(&x);
+    for (int row = 0; row < MATRIXLEN; ++row) {
+        for (int col = 0; col < MATRIXLEN; ++col) {
+            // Multiply the row of A by the column of B to get the row, column of product.
+            x[row][col] = 0;
+            for (int inner = 0; inner < MATRIXLEN; ++inner) {
+                x[row][col] += matrix1[row][inner] * matrix2[inner][col];
+            }
+        }
+    }
+    return x;
+}
+

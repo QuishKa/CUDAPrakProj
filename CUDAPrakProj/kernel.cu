@@ -6,8 +6,12 @@
 #include <malloc.h>
 #include <stdlib.h>
 #include <time.h>
+#include <iostream>
+#include <chrono>
 
-#define MATRIXLEN 10
+
+
+#define MATRIXLEN 1000
 #define BLOCKSIZE 10
 
 struct Matrix
@@ -42,12 +46,14 @@ int main()
 
     srand(time(0));
 
+    auto begin = std::chrono::steady_clock::now();
+
     GenerateMatrix(&matrix1);
     GenerateMatrix(&matrix2);
     GenerateMatrix(&matrixRes);
 
-    OutputMatrix(matrix1);
-    OutputMatrix(matrix2);
+    //OutputMatrix(matrix1);
+    //OutputMatrix(matrix2);
 
     // Add vectors in parallel.
     cudaError_t cudaStatus = MultiMatrixesCUDA(matrix1, matrix2, &matrixRes);
@@ -55,20 +61,37 @@ int main()
         fprintf(stderr, "MultiMatrixesCUDA failed!");
         return 1;
     }
+    auto end = std::chrono::steady_clock::now();
+
+    auto elapsed_ms = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+
+    std::cout << "The time: " << elapsed_ms.count() << " ns\n";
     printf("\n-------------CUDA Result-------------\n");
-    OutputMatrix(matrixRes);
+    //OutputMatrix(matrixRes);
 
     // cudaDeviceReset must be called before exiting in order for profiling and
     // tracing tools such as Nsight and Visual Profiler to show complete traces.
+
+
     cudaStatus = cudaDeviceReset();
+
+    begin = std::chrono::steady_clock::now();
+
     if (cudaStatus != cudaSuccess) {
         fprintf(stderr, "cudaDeviceReset failed!");
         return 1;
     }
 
     int** x = MultiMatrixes(matrix1, matrix2);
+
+    end = std::chrono::steady_clock::now();
+
+    elapsed_ms = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+
+    std::cout << "The time: " << elapsed_ms.count() << " ns\n";
+
     printf("\n-------------CPU Result-------------\n");
-    OutputMatrix(x);
+    //OutputMatrix(x);
 
     free(matrix1);
     free(matrix2);
